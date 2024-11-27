@@ -1,0 +1,11 @@
+div p {
+    color:chartreuse;
+    background-color: red;
+}
+body {
+    background-color: blue;
+}
+p {
+    color: black;
+    background-color: aqua;
+}

@@ -1,0 +1,14 @@
+h1, h2, h3 {
+    color: yellowgreen;
+}
+body {
+    background-color:black;
+}
+h4, h5 {
+    color:darkgreen;
+    background-color: aqua;
+}
+h6, p {
+    color:hotpink;
+    background-color: purple;
+}

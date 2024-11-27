@@ -1,0 +1,10 @@
+h1, h2, h3{
+    color:brown;
+}
+#id1, #id2{
+    color: red;
+    background-color: yellow;
+}
+* {
+    background-color: lightgrey;
+}

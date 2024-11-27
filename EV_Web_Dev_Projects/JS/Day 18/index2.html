@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        if ('Notification' in window) {
+            Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                    let notification = new Notification("New Message", {
+                        body: "Click to view the message",
+                        icon: "https://via.placeholder.com/100"
+                    });
+                    notification.onclick = function() {
+                        window.focus();
+                        console.log("Notification clicked");
+                    };
+                } else {
+                    console.log("Notification permission denied.");
+                }
+            }).catch(error => {
+                console.error("Notification permission request failed", error);
+            });
+        } else {
+            console.log("Notifications are not supported in this browser.");
+        }
+        // Run this program in normal chrome window, not in incognito mode
+        
+        localStorage.setItem('username','John')
+        localStorage.setItem('id','111')
+        let user=localStorage.getItem('username')
+        console.log(user)
+        localStorage.removeItem('username')
+        localStorage.clear()
+
+        // Add session instead of local
+        sessionStorage.setItem('username','Jack')
+        sessionStorage.setItem('id','112')
+        let user1=sessionStorage.getItem('username')
+        console.log(user1)
+        sessionStorage.removeItem('username')
+        sessionStorage.clear()
+    </script>
+</body>
+</html>

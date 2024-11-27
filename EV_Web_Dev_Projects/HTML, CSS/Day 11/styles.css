@@ -1,0 +1,19 @@
+h1 {
+    text-align: center;
+    text-decoration: underline;
+}
+h3 {
+    text-decoration: underline;
+}
+body p {
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body > p {
+    color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+section + p {
+    color: crimson;
+    font-family: 'Courier New', Courier, monospace;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        label {
+            display: inline-block;
+            width: 100px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h2>Sign Up !</h2>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter Username" required pattern="[A-Za-z]">
+        </div>
+        <div class="form-group">
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" placeholder="Enter Email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div class="form-group">
+            <label>Gender:</label>
+            <div class="inline-group">
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dob">DOB:</label>
+            <input type="date" id="dob" name="dob">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+        <div class="form-group">
+            <label for="country-select">Country:</label>
+            <select id="country-select" name="country">
+                <option value="india">India</option>
+                <option value="usa">USA</option>
+                <option value="germany">Germany</option>
+                <option value="uae">UAE</option>
+                <option value="uk">UK</option>
+                <option value="australia">Australia</option>
+                <option value="new-zealand">New Zealand</option>
+            </select>
+        </div> 
+        <div class="form-group">
+            <label>Languages Known:</label>
+            <div class="inline-group">
+                <input type="checkbox" id="english" value="English">
+                <label for="english">English</label>
+                <input type="checkbox" id="marathi" value="Marathi">
+                <label for="marathi">Marathi</label>
+                <input type="checkbox" id="hindi" value="Hindi">
+                <label for="hindi">Hindi</label>
+            </div>
+        </div>     
+        <div class="form-group">
+            <label for="file">Profile Picture:</label>
+            <input type="file" id="file" name="file">
+        </div>
+        <div class="form-group">
+            <label for="desc">About Yourself:</label>
+            <textarea id="desc" name="description" rows="3" cols="30"></textarea>
+        </div>
+        <div class="form-group buttons">
+            <button type="submit">Register</button>
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+    <div class="footer">
+        <a href="#about">About Us</a> |
+        <a href="#privacy">Privacy Policy</a> |
+        <a href="#contact">Contact Us</a> |
+        <a href="#faq">FAQ</a> |
+        <a href="#terms">Terms & Conditions</a>
+        <p>Copyright © 2024 | Giri</p>
+        <p>Like and Connect with us on FB, Twitter, G+</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <h3>Selecting Input Values from Dropdown</h3>
+        <label for="level">Select Technology for appearing the Certification: </label>
+        <select name="technology" id="technology">
+            <option value="WT">Web Technology</option>
+            <option value="MERN">MERN Stack</option>
+            <option value="Full-Stack">Full-Stack</option> <br>
+        </select>
+        <br>
+        <br>
+        Choose Technology for appearing the Certification: <input list="technologies">
+        <datalist id="technologies">
+            <option value="HTML"></option>
+            <option value="CSS"></option>
+            <option value="JS"></option>
+            <option value="MERN"></option>
+            <option value="Full-Stack (All tools)"></option>
+        </datalist>
+        <br>
+        <br>
+        <button>Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+h1 {
+    font-family: cursive; 
+}
+@font-face {
+    font-family: nb;
+    src: url("NB.ttf");
+}
+nav {
+    background-image: linear-gradient(320deg, #663dff 0%, #aa00ff 37%, #cc4499 100%);
+    text-align: center;
+    color: #fff;
+    padding: 0.3rem;
+    font-family: rejoy;
+    letter-spacing: 3px;
+}
+.main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
+    margin: 5rem 0;
+}
+.box {
+    width: 40%;
+    padding: 0.7rem;
+    border-radius: 10px;
+    color: transparent;
+    color: rgb(71, 71, 133);
+    box-shadow: 20px 20px 40px #a7a7a7, -20px -20px 40px #ffffff;
+}
+.box h2 {
+    font-family: nb;
+    text-align: center;
+}
+.marque {
+    margin: 4rem 0 2rem 0;
+    color: black;
+    padding: 20px 5px;
+    font-size: 25px;
+    font-family: rejoy;
+}
+.box ul li {
+    margin: 5px 0;
+    width: 95%;
+}
+.box ul li a {
+    margin: 10px 5px;
+    background: linear-gradient(320deg, #663dff 0%, #aa00ff 37%, #cc4499 100%);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+    font-family: rejoy;
+}
+.box ul li a:hover {
+    background: #aa00ff;
+    color: #fff;
+}
