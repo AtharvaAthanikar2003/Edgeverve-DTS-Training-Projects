@@ -1,0 +1,73 @@
+CREATE TABLE students (
+    student_id NUMBER PRIMARY KEY,
+    student_name VARCHAR2(100) NOT NULL,
+    email VARCHAR2(100) UNIQUE NOT NULL,
+    date_of_birth DATE,
+    registration_date DATE DEFAULT SYSDATE
+);
+CREATE TABLE courses (
+    course_id NUMBER PRIMARY KEY,
+    course_name VARCHAR2(100) NOT NULL,
+    max_capacity NUMBER NOT NULL,
+    registration_date DATE DEFAULT SYSDATE,
+    CONSTRAINT chk_max_capacity CHECK (max_capacity > 0)
+);
+CREATE TABLE registrations (
+    registration_id NUMBER PRIMARY KEY,
+    student_id NUMBER NOT NULL,
+    course_id NUMBER NOT NULL,
+    registration_date DATE DEFAULT SYSDATE,
+    CONSTRAINT fk_student FOREIGN KEY (student_id) REFERENCES students(student_id),
+    CONSTRAINT fk_course FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+
+INSERT INTO students (student_id, student_name, email, date_of_birth)
+VALUES (1, 'Atharva', 'aa.123@example.com', TO_DATE('2003-03-25', 'YYYY-MM-DD'));
+INSERT INTO students (student_id, student_name, email, date_of_birth)
+VALUES (2, 'Shirish', 'sh.456@example.com', TO_DATE('2003-09-21', 'YYYY-MM-DD'));
+INSERT INTO students (student_id, student_name, email, date_of_birth)
+VALUES (3, 'Aakash', 'ad.789@example.com', TO_DATE('2003-07-09', 'YYYY-MM-DD'));
+INSERT INTO students (student_id, student_name, email, date_of_birth)
+VALUES (4, 'Pranav', 'pm.135@example.com', TO_DATE('2003-05-07', 'YYYY-MM-DD'));
+SELECT * FROM students;
+DROP TABLE students;
+
+INSERT INTO courses (course_id, course_name, max_capacity)
+VALUES (101, 'Data Analytics and Machine Learning', 40);
+INSERT INTO courses (course_id, course_name, max_capacity)
+VALUES (102, 'Java Programming', 50);
+INSERT INTO courses (course_id, course_name, max_capacity)
+VALUES (103, 'Advanced Web Development', 60);
+INSERT INTO courses (course_id, course_name, max_capacity)
+VALUES (104, 'Introduction to SQL', 40);
+SELECT * FROM courses;
+DROP TABLE courses;
+
+INSERT INTO registrations (registration_id, student_id, course_id)
+VALUES (1, 1, 101);
+INSERT INTO registrations (registration_id, student_id, course_id)
+VALUES (2, 2, 101);
+-- Attempting to exceed course capacity (will fail due to check constraint)
+INSERT INTO registrations (registration_id, student_id, course_id)
+VALUES (3, 6, 102);
+INSERT INTO registrations (registration_id, student_id, course_id)
+VALUES (4, 4, 102);
+INSERT INTO registrations (registration_id, student_id, course_id)
+VALUES (5, 3, 103);
+INSERT INTO registrations (registration_id, student_id, course_id)
+VALUES (6, 5, 104);
+SELECT * FROM registrations;
+DROP TABLE registrations;
+DELETE FROM registrations
+WHERE registration_id = 1;
+UPDATE registrations set student_id=2 WHERE registration_id=4;
+SELECT 
+    s.student_id, s.student_name, s.email, s.date_of_birth, 
+    r.registration_id, r.registration_date,
+    c.course_id, c.course_name, c.max_capacity
+FROM 
+    registrations r
+JOIN 
+    students s ON r.student_id = s.student_id
+JOIN 
+    courses c ON r.course_id = c.course_id;

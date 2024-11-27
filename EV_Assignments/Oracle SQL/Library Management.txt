@@ -1,0 +1,23 @@
+create table authors (
+    author_id number primary key,
+    author_name varchar2(100) not null
+);
+create table books (
+    book_id number primary key,
+    book_title varchar2(100) not null,
+    author_id number not null,
+    constraint fk_author foreign key (author_id) references authors(author_id) on delete cascade
+);
+-- Insert authors
+insert into authors (author_id, author_name) values (1, 'Jane Austen');
+insert into authors (author_id, author_name) values (2, 'Charles Dickens');
+
+-- Insert books
+insert into books (book_id, book_title, author_id) values (101, 'Pride and Prejudice', 1);
+insert into books (book_id, book_title, author_id) values (102, 'Emma', 1);
+insert into books (book_id, book_title, author_id) values (103, 'Oliver Twist', 2);
+
+-- Delete an author and observe cascade delete
+delete from authors where author_id = 1;
+select * from books;
+select * from authors;

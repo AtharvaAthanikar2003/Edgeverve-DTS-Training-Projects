@@ -1,0 +1,124 @@
+/*
+1.    Write a java program to validate a username. The username should start with a letter and contain only alphanumeric characters and underscores(_). The length of the username should be between 5 and 20 characters.
+*/
+
+package Projects;
+import java.util.*;
+import java.util.regex.*;
+public class D1_Username {
+	public static void main(String[] args) {
+		String patternString = "^[a-zA-Z]\\w{5,20}$";
+		System.out.print("Enter username: ");
+		Scanner sc=new Scanner(System.in);
+        String input = sc.nextLine();
+		String string = new String();
+		string.length();
+		Pattern pattern= Pattern.compile(patternString);
+		Matcher matcher=pattern.matcher(input);
+		if (matcher.matches()) {
+            System.out.println("Valid username: " + input);
+        } else {
+            System.out.println("Invalid username: " + input);
+        }
+		sc.close();
+	}
+}
+
+/*
+2.     Create a java program to extract all email addresses from a given text using regular expressions.
+*/
+
+package Projects;
+import java.util.*;
+import java.util.regex.*;
+public class D2_Emailaddress {
+	public static void main(String[] args) {
+		String patternstring="^[\\w.-]+@([\\w-]+\\.)+[\\w-]{2,4}";
+		System.out.print("Enter Email-ID: ");
+		Scanner sc=new Scanner(System.in);
+		String input=sc.nextLine();
+		Pattern pattern=Pattern.compile(patternstring);
+		Matcher matcher=pattern.matcher(input);
+		if (matcher.find()) {
+            String email = matcher.group();
+            System.out.println(email + " is a valid email");
+        } else {
+            System.out.println("Invalid email address format. Enter the Email address properly.");
+        }
+		sc.close();
+	}
+}
+
+/*
+3.    Write a java program that reads an integer from the user and handles ‘inputMismatchException‘ and ‘ArithmeticException’ when dividing a number by the input integer.
+*/
+
+package Projects;
+import java.util.*;
+public class D3_Exceptions {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        try {
+            System.out.print("Enter an integer: ");
+            int num = sc.nextInt();
+            int result = 100 / num;
+            System.out.println("Result of 100 divided by " + num + " is: " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input! Please enter an integer.");
+        } catch (ArithmeticException e) {
+            System.out.println("Arithmetic Exception: Cannot divide by zero.");
+        } finally {
+            sc.close();
+        }
+    }
+}
+
+/*
+4.    Create a custom Exception called ‘InvalidInputException’
+*/
+
+package Projects;
+import java.util.Scanner;
+class InvalidInputException extends Exception {
+    public InvalidInputException(String message) {
+        super(message);
+    }
+}
+public class D4_CustomException {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Enter an integer: ");
+            int num = scanner.nextInt();
+            if (num < 0 || num > 100) {
+                throw new InvalidInputException("Input must be between 0 and 100.");
+            }
+            System.out.println("Input is valid: " + num);
+        } catch (InvalidInputException e) {
+            System.out.println("Invalid Input: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
+    }
+}
+
+/*
+Write a java program that throws this exception if the user input is not positive integer.
+5.    Write a java to create a thread by implementing the ‘Runnable’ interface. The thread should print the squares of numbers from 1 to 5.
+*/
+
+package Projects;
+public class D5_RunnableThread implements Runnable {
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Square of " + i + ": " + (i * i));
+        }
+    }
+    public static void main(String[] args) {
+    	D5_RunnableThread squareThread = new D5_RunnableThread();
+        Thread thread = new Thread(squareThread);
+        thread.start();
+    }
+}

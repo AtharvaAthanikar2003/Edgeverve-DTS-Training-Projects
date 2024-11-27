@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box
+}
+.container {
+  padding: 16px;
+}
+html {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    background-color:rgb(255, 20, 247);
+}
+button {
+    background-color: rgb(184, 42, 235);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+button:active {
+    background-color: rgb(36, 174, 96);
+    transform: translateY(2px);
+}

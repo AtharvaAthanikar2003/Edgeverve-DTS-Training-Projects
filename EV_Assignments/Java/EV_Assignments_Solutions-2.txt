@@ -1,0 +1,227 @@
+/* 
+1.    Write a java program that initializes a 1D array of integers with 10 elements. Implement method to:
+	a.    Reverse the elements in the array.
+	b.    Find the maximum and minimum elements in the array.
+*/
+
+public class OneD_array {
+    static int[] arr = {0,1,2,3,4,5,6,7,8,9};
+    public static void reverseArrayExtraArray(int[] arr) {
+        int[] reversedArr = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            reversedArr[i] = arr[arr.length - i - 1];
+        }
+        System.out.print("Reversed Array: ");
+        for (int i : reversedArr) {
+            System.out.print(i + " ");
+        }
+    }
+    public static int max() {
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+    public static int min() {
+        int min = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+    public static void main(String[] args) {
+        System.out.println("Min Element:- " + min());
+        System.out.println("Max Element:- " + max());
+        reverseArrayExtraArray(arr);
+    }
+}
+
+
+/*
+2.    Create a java program that initializes a 2D array of integers with dimensions 3*3.implement methods to:
+	a. Find the sum of all elements in the 2D array
+	b. Find the transpose of the 2D array.  
+*/
+
+public class Sum_Transpose_2Darray {
+    public static int[][] addMatrix(int[][] a, int[][] b) {
+        int rows = a.length;
+        int columns = a[0].length;
+        int[][] result = new int[rows][columns];     
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                result[i][j] = a[i][j] + b[i][j];
+            }
+        }  
+        return result;
+    }
+    public static int[][] transpose(int a[][]) {
+        int rows = a.length;
+        int columns = a[0].length;
+        int result[][] = new int[columns][rows];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                result[j][i] = a[i][j]; 
+            }
+        }
+        return result; 
+    }
+    public static void main(String[] args) {
+        int a[][] = {{1, 2, 3},
+                     {4, 5, 6},
+                     {7, 8, 9}};                    
+        int b[][] = {{1, 2, 3},
+                     {4, 5, 6},
+                     {7, 8, 9}};                     
+        int[][] result = addMatrix(a, b);        
+        System.out.println("Resultant Matrix:");
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result[i].length; j++) {
+                System.out.print(result[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        int transposedArray[][] = transpose(a);
+        System.out.println("Transpose Matrix:- ");
+        for (int i = 0; i < transposedArray.length; i++) {
+            for (int j = 0; j < transposedArray[0].length; j++) {
+                System.out.print(transposedArray[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+/*    
+3.    Develop a java program that initializes a multi-dimensional array of integers with dimensions 3*3*3.implements methods to.
+	a.    Check if the multi-dimensional array is a magic square.
+*/
+
+public class Magic_square {
+    private int[][][] square = new int[3][3][3];
+    public Magic_square(int[][][] square) {
+        this.square = square;
+    }
+    public boolean isMagicSquare() {
+        int sum = 0;
+        for (int i = 0; i < 3; i++) {
+            sum += square[0][0][i];
+        }
+        for (int i = 0; i < 3; i++) {
+            int rowSum = 0;
+            int colSum = 0;
+            int diagSum1 = 0;
+            int diagSum2 = 0;
+            for (int j = 0; j < 3; j++) {
+                rowSum += square[i][0][j];
+                colSum += square[0][i][j];
+                diagSum1 += square[i][j][j];
+                diagSum2 += square[i][j][2 - j];
+            }
+            if (rowSum != sum || colSum != sum || diagSum1 != sum || diagSum2 != sum) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        int[][][] array = {
+            {{2, 7, 6}, {9, 5, 1}, {4, 3, 8}},
+            {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}},  // Not a magic square
+            {{8, 1, 6}, {3, 5, 7}, {4, 9, 2}}
+        };
+        Magic_square magicSquare = new Magic_square(array);
+        if (magicSquare.isMagicSquare()) {
+            System.out.println("The array is a magic square.");
+        } else {
+            System.out.println("The array is not a magic square.");
+        }
+    }
+}
+
+/*    
+4.    Write a program that creates a jagged array of integers where each row has a different number of elements. Implement method to:
+	a.    Find the sum of each row in the jagged array.
+	b.    Sort each row in ascending order.
+*/
+
+import java.util.Arrays;
+public class Sum_jaggedarray {
+    public static void main(String[] args) {
+        int[][] jaggedArray = {
+                {3, 7, 6},
+                {4, 1},
+                {2, 8, 5, 9}
+        };
+        int[] rowSums = sumOfRows(jaggedArray);
+        System.out.println("Sum of each row:");
+        for (int i = 0; i < rowSums.length; i++) {
+            System.out.println("Row " + (i + 1) + ": " + rowSums[i]);
+        }
+        sortRows(jaggedArray);
+        System.out.println("\nSorted jagged array:");
+        for (int i = 0; i < jaggedArray.length; i++) {
+            System.out.println("Row " + (i + 1) + ": " + Arrays.toString(jaggedArray[i]));
+        }
+    }
+    public static int[] sumOfRows(int[][] arr) {
+        int[] rowSums = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                rowSums[i] += arr[i][j];
+            }
+        }
+        return rowSums;
+    }
+    public static void sortRows(int[][] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            Arrays.sort(arr[i]);
+        }
+    }
+}
+
+/*
+5.    Find the maximum and minimum elements in the 2D array.
+*/
+
+public class Minmax_2Darray {
+    static int[][] arr = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+    public static int getMax() {
+        int max = arr[0][0];
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                if (arr[i][j] > max) {
+                    max = arr[i][j];
+                }
+            }
+        }
+        return max;
+    }
+    public static int getMin() {
+        int min = arr[0][0];
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                if (arr[i][j] < min) {
+                    min = arr[i][j];
+                }
+            }
+        }
+        return min;
+    }
+    public static void main(String[] args) {
+        int max = getMax();
+        int min = getMin();
+        System.out.println("Max: " + max);
+        System.out.println("Min: " + min);
+    }
+}

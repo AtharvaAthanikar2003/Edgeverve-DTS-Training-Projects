@@ -1,0 +1,159 @@
+/*
+1.    Write a Java program to create a class called Shape with a method called getArea(). Create a subclass called Rectangle that overrides the getArea() method to calculate the area of a rectangle.
+*/
+
+import java.util.Scanner;
+public class Shape {
+    static class Rectangle {
+        void getArea(int length, int width) {
+            int area = length * width;
+            System.out.println("Area of Rectangle= " + area);
+        }
+        void getArea1() {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter the length: ");
+            int length = sc.nextInt();
+            System.out.print("Enter the width: ");
+            int width = sc.nextInt();
+            sc.close();
+            getArea(length, width);
+        }
+    }
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle();
+        rectangle.getArea1();
+    }
+}
+
+/*
+2.    Write a Java program to create a class called Employee with methods called work() and getSalary(). Create a subclass called HRManager that overrides the work() method and adds a new method called addEmployee().
+*/
+
+class HRManager {
+	void work() {
+			System.out.println("Work");
+		}
+		void getSalary() {
+			System.out.println("Get Salary");
+		}
+		void addEmployee() {
+			System.out.println("Add Employee");
+		}
+	}
+	class GM extends HRManager {
+	    @Override
+	    void work() {
+	        System.out.println("Manager is working.");
+	    }
+	    void addEmployee() {
+	        System.out.println("Manager is adding an employee.");
+	    }
+	}
+	public class Employee {
+	public static void main(String[] args) {
+		HRManager bank=new HRManager();
+		GM bank1=new GM();
+		bank.work();
+		bank.getSalary();
+		bank.addEmployee();
+		bank1.work();
+		bank1.addEmployee();
+	}
+}
+
+/*
+3.     Write a Java program to create a class Employee with a method called calculateSalary(). Create two subclasses Manager and Programmer. In each subclass, override the calculateSalary() method to calculate and return the salary based on their specific roles.
+*/
+
+import java.util.Scanner;
+    class Manager extends Employee_2 {
+        static int calculateSalary(Scanner sc) {
+            System.out.print("Enter Manager Salary: ");
+            int man_sal = sc.nextInt();
+            return man_sal;
+        }
+    }
+    class Programmer extends Employee_2 {
+        static int calculateSalary(Scanner sc) {
+            System.out.print("Enter Programmer Salary: ");
+            int prog_sal = sc.nextInt();
+            return prog_sal;
+        }   
+    }
+    public class Employee_2 {
+	    public static void main(String[] args) {
+	        Scanner sc = new Scanner(System.in);
+	        int managerSalary = Manager.calculateSalary(sc);
+	        int programmerSalary = Programmer.calculateSalary(sc);
+	        sc.close();
+	        System.out.println("Manager Salary: " + managerSalary);
+	        System.out.println("Programmer Salary: " + programmerSalary);
+	}
+}
+
+/*
+4.    Write a Java method to count all the words in a string. Test Data:
+Input the string: The quick brown fox jumps over the lazy dog.
+Expected Output:  Number of words in the string: 9
+*/
+
+import java.util.*;
+public class No_of_words {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the string: ");
+		String str=sc.nextLine();
+		int count=0;
+		String[] words = str.split("\\s+");
+		for (String word : words) {
+            if (!word.isEmpty()) { 
+                count++;
+            }
+        }
+		System.out.println("Number of words in the string: "+count);
+		sc.close();
+	}
+}
+
+/*
+5.    Write a Java program to create a class called "Student" with a name, grade, and courses attributes, and methods to add and remove courses.
+*/
+
+import java.util.ArrayList;
+import java.util.List;
+public class Student {
+    private String name;
+    private int grade;
+    private List<String> courses;
+    public Student(String name, int grade) {
+        this.name = name;
+        this.grade = grade;
+        this.courses = new ArrayList<>();
+    }
+    public String getName() {
+        return name;
+    }
+    public int getGrade() {
+        return grade;
+    }
+    public List<String> getCourses() {
+        return courses;
+    }
+    public void addCourse(String course) {
+        courses.add(course);
+    }
+    public void removeCourse(String course) {
+        courses.remove(course);
+    }
+    public static void main(String[] args) {
+        Student student = new Student("AA", 1);
+        student.addCourse("CS");
+        student.addCourse("DS");
+        student.addCourse("ML");
+        System.out.println("Student: " + student.getName());
+        System.out.println("Grade: " + student.getGrade());
+        System.out.println("Courses: " + student.getCourses());
+        student.removeCourse("CS");
+        System.out.println("Updated courses: " + student.getCourses());
+    }
+}
