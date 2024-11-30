@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #6cc4e7;
+    }
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    input {
+      padding: 8px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    p {
+      margin: 5px 0;
+    }
+    #transaction-section {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bank Management System</h1>
+    <div id="account-section">
+      <button id="create-account-btn">Create Account</button>
+      <div id="account-form" style="display:none;">
+        <input type="text" id="account-name" placeholder="Enter Account Name" required>
+        <input type="text" id="account-number" placeholder="Enter Account Number" required>
+        <input type="email" id="account-email" placeholder="Enter Email" required>
+        <input type="text" id="account-address" placeholder="Enter Address" required>
+        <input type="number" id="initial-deposit" placeholder="Enter Initial Deposit" required>
+        <button id="submit-account-btn">Submit</button>
+      </div>
+    </div>
+    <div id="account-actions" style="display:none;">
+      <h2>Welcome, <span id="account-name-display"></span></h2>
+      <p>Account Number: <span id="account-number-display"></span></p>
+      <p>Email: <span id="account-email-display"></span></p>
+      <p>Address: <span id="account-address-display"></span></p>
+      <button id="deposit-btn">Deposit</button>
+      <button id="withdraw-btn">Withdraw</button>
+      <button id="check-balance-btn">Check Balance</button>
+      <p id="balance">Balance: $0</p>
+    </div>
+    <div id="transaction-section" style="display:none;">
+      <h3 id="transaction-title">Enter amount of money to deposit or withdraw</h3>
+      <input type="number" id="amount" placeholder="Enter amount" required>
+      <button id="confirm-transaction-btn">Confirm</button>
+      <button id="cancel-transaction-btn">Cancel</button>
+    </div>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

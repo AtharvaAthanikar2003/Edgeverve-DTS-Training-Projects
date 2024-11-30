@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e6f7ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #195476;
+            width: 100%;
+            padding: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        header nav a {
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            text-decoration: none;
+            margin: 0 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        header nav a:hover {
+            background-color: #45a049;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            margin-top: 40px;
+            margin-bottom: 200px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            text-decoration: underline;
+        }
+        label {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+        input {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button#clearBtn {
+            margin-left: 10px;
+            background-color: #f44336;
+        }
+        button#clearBtn:hover {
+            background-color: #e53935;
+        }
+        footer {
+            background-color: #195476;
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        #patientDetails {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="register.html">Register</a>
+            <a href="contact us.html">Contact Us</a>
+            <a href="user-list.html">View Registered Users</a> 
+        </nav>
+    </header>
+    <div class="container">
+        <h1>New Patient Registration Form</h1>
+        <form id="registerForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required><br><br>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <button type="submit">Register</button>
+            <button type="button" id="clearBtn">Clear</button>
+        </form>
+        <div id="successMessage" style="color: #28a745; font-weight: bold; text-align: center; display: none;">
+            Patient Registered Successfully!
+        </div>
+
+        <div id="patientDetails">
+            <h3>Registration Details:</h3>
+            <p><strong>Name:</strong> <span id="registeredName"></span></p>
+            <p><strong>Age:</strong> <span id="registeredAge"></span></p>
+            <p><strong>Email:</strong> <span id="registeredEmail"></span></p>
+        </div>
+    </div>
+    <footer>
+        <div><p>Copyright &copy; 2024 Patient-Tracker. All Rights Reserved</p></div>
+    </footer>
+    <script>
+        const registerForm = document.getElementById('registerForm');
+        const successMessage = document.getElementById('successMessage');
+        const patientDetails = document.getElementById('patientDetails');
+        const registeredName = document.getElementById('registeredName');
+        const registeredAge = document.getElementById('registeredAge');
+        const registeredEmail = document.getElementById('registeredEmail');
+        const clearBtn = document.getElementById('clearBtn');
+        registerForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const email = document.getElementById('email').value;
+            successMessage.style.display = 'block';
+            registeredName.textContent = name;
+            registeredAge.textContent = age;
+            registeredEmail.textContent = email;
+            patientDetails.style.display = 'block';
+            clearBtn.style.display = 'inline-block';
+            registerForm.reset();
+        });
+        clearBtn.addEventListener('click', function() {
+            document.getElementById('name').value = '';
+            document.getElementById('age').value = '';
+            document.getElementById('email').value = '';
+            successMessage.style.display = 'none';
+            patientDetails.style.display = 'none';
+            clearBtn.style.display = 'inline-block';
+        });
+    </script>
+</body>
+</html>
