@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let button = document.createElement('Button')
+        button.setAttribute('ID', 'myButton')
+        button.setAttribute('Type', 'Button')
+        button.style.backgroundColor='#d20034'
+        button.style.color='White'
+        button.style.padding='10px'
+        button.textContent='Click "Ctrl+Shift+I" to see the console'
+        document.body.appendChild(button)
+    </script>
+    <script>
+        let httpRequest = new XMLHttpRequest();
+        httpRequest.open('GET', 'https://jsonplaceholder.typicode.com/todos/', true);
+        httpRequest.onload = function() {
+            if (httpRequest.status === 200) {
+                console.log('Response', httpRequest.responseText);
+                let data = JSON.parse(httpRequest.responseText);
+                console.log('Parsed Data', data);
+            } else {
+                console.log('Error', httpRequest.status, httpRequest.statusText);
+            }
+        };
+        httpRequest.send();
+
+        let httpRequest2 = new XMLHttpRequest();
+        let datatosend = {
+            title: "New task",
+            completed: false,
+            userId: 1
+        };
+        httpRequest2.open('POST', 'https://jsonplaceholder.typicode.com/todos/', true);
+        httpRequest2.setRequestHeader('Content-Type', 'application/json');
+        httpRequest2.send(JSON.stringify(datatosend));      
+    </script>
+</body>
+</html>
+
+<!---
+Ajax - asynchronous js and xml
+SPA - single page applications - gmail, yahoo mail, etc
+<--->
