@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop Down Menu</title>
+    <style>
+        body {
+            background-color: #add8e6;
+        }
+        nav {
+            background-color: #2b3e50;
+            display: inline-flexbox;
+        }
+        .menu {
+            text-decoration: underline orange 2px;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+        .menu>li>a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            border-left: 1px solid #fff;
+            border-right: 1px solid #fff;
+            transition: background-color 0.5s;
+        }
+        .menu>li>a:hover {
+            background-color: #4da6ff;
+        }
+        .dropdown-content {
+            position: absolute;
+            background-color: #445a70;
+            transition: transform 0.5s ease;
+            transform: scaleY(0);
+            transform-origin: top;
+        }
+        .dropdown-content li a {
+            padding: 10px 20px;
+            color: white;
+            display: block;
+        }
+        .dropdown-content li a:hover {
+            background-color: #4da6ff;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+            transform: scaleY(1); 
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li class="dropdown">
+                <a href="#">Product</a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Mobile Phones</a></li>
+                    <li><a href="#">Laptops</a></li>
+                    <li><a href="#">Bluetooth Earbuds</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Services</a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Refund</a></li>
+                    <li><a href="#">Customer Care</a></li>
+                    <li><a href="#">Cashback and other offers</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

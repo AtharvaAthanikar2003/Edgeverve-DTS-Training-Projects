@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader</title>
+    <style>
+        body {
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            background-color: aquamarine;
+        }
+        .spin {
+            background-color: azure;
+            margin-top: 40px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 6px solid black;
+            border-top-color: blue;
+            animation: 1s spin 5 ease-in;
+        }
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="spin"></div>
+</body>
+</html>
