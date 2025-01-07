@@ -1,0 +1,56 @@
+//Fetch all the products in shoppers.com inventory:
+db.products.find({})
+
+//Display all the details of products under the category "Mobiles":
+db.products.find({
+    "productCategory.sub": "mobiles"
+})
+
+//Display all the details of product with productId "P1001":
+db.products.find({
+    "productId": "P1001"
+})
+
+//Display the name of all the laptops:
+db.products.find({
+    "productCategory.sub": "laptop"
+}, {
+    "productName": 1
+})
+
+//Fetch all "Home and Furnitures" products:
+db.products.find({
+    "productCategory.main": "Home and Furnitures"
+})
+
+//Fetch all products sold by Voltas:
+db.products.find({
+    "productBrand": "Voltas"
+})
+
+//Display battery details of "HP Pavilion Gaming Laptop":
+db.products.find({
+    "productName": "HP Pavilion Gaming Laptop"
+}, {
+    "battery": 1
+})
+
+//Display the laptops with 3 battery cells:
+db.products.find({
+    "productCategory.sub": "laptop",
+    "battery.cells": 3
+})
+
+//Fetch the price and availability of "3 ton fixed speed Voltas AC":
+db.products.find({
+    "productId": "P1010",
+    "productPrice.fixedspeed.3ton": { $exists: true }
+}, {
+    "productPrice.fixedspeed.3ton": 1
+})
+
+//Display the mobiles with battery capacity under 5000:
+db.products.find({
+    "productCategory.sub": "mobiles",
+    "battery": { $lt: 5000 }
+})

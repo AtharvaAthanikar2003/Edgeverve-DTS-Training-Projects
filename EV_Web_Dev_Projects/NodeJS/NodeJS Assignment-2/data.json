@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "name": "John Doe",
+      "age": 28,
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "age": 34,
+      "isActive": false
+    },
+    {
+      "id": 3,
+      "name": "Alice Johnson",
+      "age": 29,
+      "isActive": true
+    },
+    {
+      "id": 4,
+      "name": "Bob Brown",
+      "age": 40,
+      "isActive": false
+    },
+    {
+      "id": 5,
+      "name": "Charlie White",
+      "age": 25,
+      "isActive": true
+    }
+  ]
+  
