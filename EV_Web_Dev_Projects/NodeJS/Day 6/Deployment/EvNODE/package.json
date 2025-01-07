@@ -1,0 +1,23 @@
+{
+  "name": "evnode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Siri1555/EvNODE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Siri1555/EvNODE/issues"
+  },
+  "homepage": "https://github.com/Siri1555/EvNODE#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
