@@ -1,0 +1,27 @@
+<h1>My Products !!!</h1>
+<div>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Action</th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productArr">
+        <td><button (click)="deleteProduct(product.id)">Delete</button></td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>
+          <input type="number" [(ngModel)]="product.quantity" (change)="onQuantityChange(product)"/>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+  <p>The total price is:- {{ totalPrice }}</p>
+  <p *ngIf="discountMessage" style="color: green;">{{ discountMessage }}</p>
+</div>

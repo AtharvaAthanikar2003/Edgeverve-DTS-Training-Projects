@@ -1,0 +1,13 @@
+The component lifecycle in angular consist of 4 stages -
+Creation: It's instantiated and its dependencies are injected
+Change Detection: Angular checks for the changes in the data bound properties
+Rendering: Components template is updated
+Destruction: Component is destroyed
+
+Lifecycle Hooks: 
+1. ngOnChanges(): It's used to respond to the changes in input properties
+2. ngOnInit(): It's used to initialize the component after angular displays the properties
+3. ngDoCheck(): Detect and act upon the changes
+4. ngAfterContentInit: Used to perform any additional initialization
+5. ngAfterViewInit: Used to check whether changes are done or not
+6. ngOnDestroy: Destroy the component and clean up the resources
