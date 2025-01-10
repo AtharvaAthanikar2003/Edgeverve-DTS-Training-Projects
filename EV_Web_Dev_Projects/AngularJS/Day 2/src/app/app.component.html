@@ -1,0 +1,23 @@
+<form (ngSubmit)="login()">
+  <div>
+    <label for="userName">Username </label>
+    <input type="text" id="userName" [(ngModel)]="userName" name="userName">
+  </div><br>
+  <div>
+    <label for="password">Password </label>
+    <input type="password" id="password" [(ngModel)]="password" name="password">
+  </div><br>
+  <div>
+    <button type="submit">Login</button>
+  </div>
+</form>
+
+<div *ngIf="loginFailed">
+  <h2>Invalid Credentials</h2>
+</div>
+<div *ngIf="loginSuccess">
+  <h2>Welcome {{ userName }}</h2>
+</div>
+<div *ngIf="loginFailed || loginSuccess">
+  <button (click)="loginFailed = loginSuccess = false">Go Back</button>
+</div>

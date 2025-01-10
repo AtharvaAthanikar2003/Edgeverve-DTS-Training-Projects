@@ -1,0 +1,26 @@
+AngularJS Installation -
+
+Step 1: Install Angular CLI globally
+Open your command prompt (cmd) or terminal and run the following command to install Angular CLI globally on your system:
+
+npm install -g @angular/cli
+
+Step 2: Create a new Angular app (with a demo folder)
+Once Angular CLI is installed, you can create a new Angular application. Navigate to the folder where you want to create your Angular app and run:
+
+ng new demo-app
+
+Step 3: Navigate to the app folder
+Once the Angular app is created, navigate to the newly created folder:
+
+cd demo-app
+
+Step 4: Serve the app
+To start the development server and run your Angular application, use the following command:
+
+ng serve / ng serve --open
+
+Step 5: Add Angular Demo Folder (Optional)
+
+ng generate component demo
+ng build
