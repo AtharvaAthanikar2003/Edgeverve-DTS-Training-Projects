@@ -1,0 +1,8 @@
+.customButton {
+    background-color: green;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}

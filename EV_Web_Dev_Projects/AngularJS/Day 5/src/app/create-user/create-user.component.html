@@ -1,0 +1,20 @@
+<div class="main">
+    <div class="heading">
+        <h1>User Management System (UMS)</h1>
+    </div>
+    <div class="container">
+        <h1>Create User Form</h1>
+        <form [formGroup]="createForm">
+            <input type="text" placeholder="Name" formControlName="name">
+            <input type="text" placeholder="Email" formControlName="email">
+            <input type="radio" id="male" value="male" name="gender" formControlName="gender"><label for="">Male</label>
+            <input type="radio" id="female" value="female" name="gender" formControlName="gender"><label for="">Female</label>
+            <input type="text" placeholder="Mobile" formControlName="mobile">
+            <input type="text" placeholder="Address" formControlName="address">
+            <input type="date" placeholder="Created date" formControlName="createddate">
+            <button (click)="createUser()">Create</button>
+            <button (click)="back()">Back</button>
+            <span [class]="isRight">{{msg}}</span>
+        </form>
+    </div>
+ </div>

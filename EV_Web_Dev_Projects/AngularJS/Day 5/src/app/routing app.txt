@@ -1,0 +1,6 @@
+ng new myApp --routing
+cd myApp
+ng generate component userDashboard
+
+app.component.html
+<router-outlet></router-outlet>

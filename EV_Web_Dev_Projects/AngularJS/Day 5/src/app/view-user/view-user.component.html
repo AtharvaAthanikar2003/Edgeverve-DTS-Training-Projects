@@ -1,0 +1,18 @@
+<div class="main" *ngIf="isLoaded">
+    <div class="heading">
+        <h1>User Management System (UMS)</h1>
+    </div>
+    <div class="container">
+        <h2>User Details</h2>
+        <ul>
+            <li>Id: {{userDetails.id}}</li>
+            <li>Name: {{userDetails.name}}</li>
+            <li>Email: {{userDetails.email}}</li>
+            <li>Gender: {{userDetails.gender}}</li>
+            <li>Mobile: {{userDetails.mobile}}</li>
+            <li>Address: {{userDetails.address}}</li>
+            <li>Created date: {{userDetails.createddate}}</li>
+        </ul><br>
+        <a routerLink = "/user-dashboard">Back</a>
+    </div>
+ </div>

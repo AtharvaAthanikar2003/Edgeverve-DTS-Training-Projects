@@ -1,0 +1,66 @@
+*{
+    box-sizing: border-box;
+ }
+ .main{
+    width: 90%;
+    background-color: rgb(211, 206, 206);
+    margin: auto;
+    padding: 10px;
+ }
+ .heading h1{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 10px 0px;
+    font-weight: bold;
+ }
+ .data{
+    width: 100%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+ }
+ .count{
+    font-size: 20px;
+    font-weight: 600;
+ }
+ .addUser a{
+    text-decoration: none;
+    width: 100px;
+    padding: 10px;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    font-size: 18px;
+ }
+ .container{
+    width: 100%;
+    margin: 50px auto;
+    overflow-x: auto;
+    font-size: 18px;
+ }
+ .container table{
+    width: 100%;
+    border-collapse: collapse;
+ }
+ .container  th, td{
+    border: 1px solid black;
+    text-align: center;
+ }
+ .container table th{
+    padding: 10px;
+ }
+ .container table th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+ }
+ .container table td{
+    padding: 7px;
+ }
+ .container table tr td a{
+    text-decoration: none;
+    padding: 10px;
+ }
+ @media (max-width: 768px) {
+    .container table {
+        font-size: 14px;
+    }
+ }

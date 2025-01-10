@@ -1,0 +1,39 @@
+<!-- <div class="cars-container">
+  <h1>Cars List</h1>
+  <ul>
+    <li *ngFor="let car of cars">
+      <h2>{{ car.name }}</h2>
+      <p>Model: {{ car.model }}</p>
+      <p>Year: {{ car.year }}</p>
+    </li>
+  </ul>
+  <select [(ngModel)]="selected" multiple>
+    <option *ngFor="let car of cars" [ngValue]="car">
+      {{ car.name }}
+    </option>
+  </select>
+  <pre>{{ selected | json }}</pre>
+</div> -->
+
+
+ <!-- <p class="content"><span>forms app is running!</span></p> -->
+
+<!-- <div>
+  <h1>Welcome to {{title}}</h1>
+</div>
+<app-create-user></app-create-user> 
+<br> -->
+
+<div class="main">
+  <div class="heading">
+    <h1>{{ title }}</h1>
+  </div>
+  
+  <div class="container">
+    <button (click)="navigateToCreateUser()">Create User</button>
+    <button (click)="navigateToDashboard()">Go to Dashboard</button>
+  </div>
+
+  <!-- Router Outlet: where child components (like CreateUserComponent) will be rendered -->
+  <router-outlet></router-outlet>
+</div>

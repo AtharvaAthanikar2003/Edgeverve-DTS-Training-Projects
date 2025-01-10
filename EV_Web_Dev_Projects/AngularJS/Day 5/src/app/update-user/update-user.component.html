@@ -1,0 +1,26 @@
+<div class="main" *ngIf="dataloaded">
+    <div class="heading">
+        <h1>User Management System (UMS)</h1>
+    </div>
+    <div class="container">
+        <h1>Update User Details</h1>
+        <form [formGroup]="updateForm">
+            <input type="text" placeholder="Name" formControlName="name">
+            <input type="text" placeholder="Email" formControlName="email">
+            <div>
+                <input type="radio" id="male" value="male" formControlName="gender">
+                <label for="male">Male</label>
+            </div>
+            <div>
+                <input type="radio" id="female" value="female" formControlName="gender">
+                <label for="female">Female</label>
+            </div>
+            <input type="text" placeholder="Mobile" formControlName="mobile">
+            <input type="text" placeholder="Address" formControlName="address">
+            <input type="date" formControlName="createddate">
+            <button type="button" (click)="updateUser()">Update</button>
+            <button type="button" (click)="back()">Back</button>
+            <span [ngClass]="isRight">{{msg}}</span>
+        </form>
+    </div>
+ </div>

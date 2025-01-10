@@ -1,0 +1,35 @@
+<div class="main">
+    <div class="heading">
+        <h1>User Management System (UMS)</h1>
+    </div>
+    <div class="container">
+        <div class="data">
+            <div class="count">
+                <p>Total Users: {{count}}</p>
+            </div>
+            <div class="addUser">
+                <a routerLink="/dashboard/user/create">Add New User</a>
+            </div>
+        </div>
+      <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Address</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor = "let u of allUsers; let i = index;">
+            <td>{{u.name}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.mobile}}</td>
+            <td>{{u.address}}</td>
+            <td>
+                <a [routerLink]="['/dashboard/user/viewuser', u.id]">View</a>|
+                <a [routerLink]="['/dashboard/user/update', u.id]">Update</a>|
+                <a href="" (click) = "delete(u.id)">Delete</a>
+            </td>
+        </tr>
+      </table>
+    </div>
+ </div>
