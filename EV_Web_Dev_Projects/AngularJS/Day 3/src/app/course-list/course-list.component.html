@@ -1,0 +1,14 @@
+<p>course-list works!</p>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Course ID</th>
+            <th>Course Name</th>
+
+        </tr>
+    </thead>
+    <tr *ngFor="let c of courses">
+        <td *ngIf="c.courseName==cName">{{c.courseId}}</td>
+        <td *ngIf="c.courseName==cName">{{c.courseName}}</td>
+    </tr>
+</table>
