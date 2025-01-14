@@ -1,0 +1,7 @@
+<div class="age-container">
+    <h2>When was I born?</h2>
+    <label for="age">Enter your Age:</label>
+    <input type="number" id="age" [(ngModel)]="age" />
+    <button (click)="showMessage()">Show Birth Year</button>
+    <p><strong>{{ message }}</strong></p>
+</div>

@@ -1,0 +1,23 @@
+<div class="orders-container">
+    <h2>Past Orders</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th>Bill Amount</th>
+          <th>Transaction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.orderId }}</td>
+          <td>{{ order.productName }}</td>
+          <td>{{ order.quantity }}</td>
+          <td>{{ order.billAmount }}</td>
+          <td>{{ order.transaction }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>  
