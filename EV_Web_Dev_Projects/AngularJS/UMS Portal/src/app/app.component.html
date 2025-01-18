@@ -1,0 +1,17 @@
+<div class="app-container">
+  <header>
+    <h1>{{ title }}</h1>
+    <nav>
+      <ul>
+        <li><a routerLink="/create-user">Create User</a></li>
+        <li><a routerLink="/view-user/1">View User</a></li>
+        <li><a routerLink="/update-user/1">Update User</a></li>
+        <li><a routerLink="/delete-user/1">Delete User</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

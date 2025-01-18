@@ -1,0 +1,24 @@
+<div class="container">
+  <!-- User List -->
+  <div class="user-list">
+    <h3>User List</h3>
+    <ul>
+      <li *ngFor="let user of users" (click)="selectUser(user.id)" [class.selected]="user.id === selectedUserId">
+        {{ user.name }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- User Details and Actions (Update and Delete) -->
+  <div class="user-details" *ngIf="user">
+    <h3>User Details</h3>
+    <p><strong>Name:</strong> {{ user.name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+
+
+
+  <!-- If no user is selected -->
+  <div *ngIf="!user">
+    <p>Select a user to view their details.</p>
+  </div>
+</div>

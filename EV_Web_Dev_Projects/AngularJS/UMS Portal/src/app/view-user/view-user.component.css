@@ -1,0 +1,153 @@
+/* Container to center everything and align left and right sections */
+.container {
+  display: flex;
+  justify-content: flex-start; /* Align content to the left */
+  align-items: flex-start;     /* Align items at the top */
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+  flex-wrap: wrap;  /* Allow wrapping on smaller screens */
+}
+
+/* User List (Left Side) */
+.user-list {
+  width: 30%;  /* Fixed width for user list */
+  border-right: 2px solid #ddd;
+  padding-right: 20px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.user-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.user-list li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.user-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.user-list li.selected {
+  background-color: #e0e0e0;
+  font-weight: bold;
+}
+
+/* User Details (Right Side) */
+.user-details {
+  width: 97%;  /* Fixed width for user details */
+  padding-left: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;  /* Make the details scrollable if necessary */
+}
+
+.user-details h3, .update-section h4, .delete-section h4 {
+  margin-bottom: 15px;
+  color: #120e0e;
+}
+
+/* Update Section Styles */
+.update-section label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.update-section input {
+  width: 100%;  /* Ensure input takes full width */
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.update-section input:focus {
+  border-color: #120e0e;
+  outline: none;
+}
+
+.update-section button {
+  padding: 12px;
+  background-color: #2aed10;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;  /* Full width button */
+  transition: background-color 0.3s ease;
+}
+
+.update-section button:hover {
+  background-color: #06b91e;
+}
+
+.update-section button:active {
+  background-color: #06b91e;
+}
+
+/* Delete Section Styles */
+.delete-section {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.delete-section p {
+  font-size: 16px;
+  color: #333;
+}
+
+.delete-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #db0808;
+}
+
+.delete-btn:active {
+  background-color: #1bee25;
+}
+
+.cancel-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.cancel-btn:hover {
+  background-color: #999;
+}
+
+.cancel-btn:active {
+  background-color: #777;
+}

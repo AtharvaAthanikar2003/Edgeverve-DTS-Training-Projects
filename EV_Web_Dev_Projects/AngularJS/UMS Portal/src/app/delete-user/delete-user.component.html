@@ -1,0 +1,10 @@
+<div class="user-details">
+  <h2>User List</h2>
+  <ul>
+    <li *ngFor="let user of users">
+      {{ user.name }} ({{ user.email }})
+      <!-- Pass the user's id to deleteUser method when clicking delete -->
+      <button (click)="deleteUser(user.id)">Delete</button>
+    </li>
+  </ul>
+</div>

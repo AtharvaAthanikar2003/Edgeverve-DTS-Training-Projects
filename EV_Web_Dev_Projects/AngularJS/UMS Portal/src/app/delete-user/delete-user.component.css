@@ -1,0 +1,44 @@
+.confirmation-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;  
+  }
+  
+  h2 {
+    text-align: center;
+    color: #120e0e;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #8b0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  button:hover {
+    background-color: #600000;
+  }
+  
+  button:active {
+    background-color: #120e0e;
+  }
+  
+  button:last-child {
+    background-color: #ccc;
+  }
+  
+  button:last-child:hover {
+    background-color: #999;
+  }
+  
