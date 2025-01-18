@@ -1,0 +1,137 @@
+-- HW QUESTION ***********************************************
+set serveroutput on;
+
+-- Develop a PL/SQL procedure that handles specific Oracle errors:
+-- How can you create a PL/SQL procedure to handle specific Oracle errors such as 
+-- ORA-00001 (unique constraint violated) using PRAGMA EXCEPTION_INIT to map this error code to a user-defined exception?
+
+CREATE TABLE my_table (
+   id NUMBER PRIMARY KEY,
+   val1 VARCHAR2(50),
+   val2 VARCHAR2(50)
+);
+INSERT INTO my_table (id, val1, val2) VALUES (1, 'test1', 'test2');
+
+CREATE OR REPLACE PROCEDURE handle_unique_error IS
+   uniq_err EXCEPTION;
+   PRAGMA EXCEPTION_INIT(uniq_err, -00001);
+BEGIN
+   INSERT INTO my_table (id, val1, val2)
+   VALUES (1, 'test1', 'test2'); 
+EXCEPTION
+   WHEN uniq_err THEN
+      DBMS_OUTPUT.PUT_LINE('Unique constraint error.');
+END;
+/
+
+BEGIN
+   handle_unique_error;
+END;
+/
+
+-- Enforcing business rules in a PL/SQL procedure:
+-- How can you develop a PL/SQL procedure that enforces business rules, such as ensuring that no product 
+-- can be updated to a price lower than its cost price, and raise a custom error if this rule is violated?
+
+DROP TABLE products;
+CREATE TABLE products (
+   pid NUMBER PRIMARY KEY,
+   price NUMBER,
+   cost NUMBER
+);
+
+CREATE OR REPLACE PROCEDURE price_rule (
+   p_id IN products.pid%TYPE,
+   p_selling_price IN NUMBER,
+   p_cost_price IN NUMBER
+) IS
+   low_cost EXCEPTION;
+BEGIN
+   IF p_selling_price < p_cost_price THEN
+      RAISE low_cost;
+   ELSE
+      UPDATE products 
+      SET price = p_selling_price, cost = p_cost_price 
+      WHERE pid = p_id;
+      DBMS_OUTPUT.PUT_LINE('Price and cost updated successfully.');
+   END IF;
+EXCEPTION
+   WHEN low_cost THEN
+      DBMS_OUTPUT.PUT_LINE('Error: Selling price cannot be lower than cost price.');
+END;
+/
+
+BEGIN
+   price_rule(1, 20, 55);  
+END;
+/
+
+-- Preventing duplicate email addresses in employee records:
+-- How can you develop a PL/SQL application that ensures no two employees can have the same 
+-- email address, and raise a custom exception if an attempt is made to insert a duplicate email?
+
+CREATE TABLE emp (
+   eid NUMBER PRIMARY KEY,
+   email VARCHAR2(100)
+);
+INSERT INTO emp (eid, email) VALUES (1, 'test_email@example.com');
+
+CREATE OR REPLACE PROCEDURE prevent_dup_email (
+   p_email IN emp.email%TYPE
+) IS
+   dup_email EXCEPTION;
+   cnt NUMBER;
+   new_id VARCHAR2(36);
+BEGIN
+   SELECT COUNT(*) INTO cnt FROM emp WHERE email = p_email;
+   IF cnt > 0 THEN
+      RAISE dup_email;
+   ELSE
+      SELECT SYS_GUID() INTO new_id FROM dual;
+      INSERT INTO emp (eid, email) VALUES (new_id, p_email);
+      DBMS_OUTPUT.PUT_LINE('Email inserted successfully.');
+   END IF;
+EXCEPTION
+   WHEN dup_email THEN
+      DBMS_OUTPUT.PUT_LINE('Duplicate email. Cannot insert.');
+END;
+/
+BEGIN
+ prevent_dup_email('test_email@example.com');
+END;
+/
+
+-- Ensuring employee salary does not exceed a maximum limit:
+-- How can you develop a PL/SQL application that ensures an employee's salary does not 
+-- exceed a certain maximum limit, and raise a custom exception if this condition is violated?
+
+CREATE TABLE emp_salaries (
+   eid NUMBER PRIMARY KEY,
+   salary NUMBER
+);
+
+CREATE OR REPLACE PROCEDURE enforce_salary_limit (
+   p_salary IN emp_salaries.salary%TYPE
+) IS
+   sal_limit EXCEPTION;
+   max_sal CONSTANT NUMBER := 100000; 
+   new_id NUMBER;
+BEGIN
+   IF p_salary > max_sal THEN
+      RAISE sal_limit;
+   ELSE
+      SELECT NVL(MAX(eid), 0) + 1 INTO new_id FROM emp_salaries;
+      INSERT INTO emp_salaries (eid, salary) VALUES (new_id, p_salary);
+      DBMS_OUTPUT.PUT_LINE('Salary inserted successfully.');
+   END IF;
+EXCEPTION
+   WHEN sal_limit THEN
+      DBMS_OUTPUT.PUT_LINE('Salary exceeds the maximum limit.');
+END;
+/
+
+BEGIN
+   enforce_salary_limit(80000);
+   enforce_salary_limit(150000);
+END;
+/

@@ -1,0 +1,111 @@
+-- 1st Problem Statement :-
+
+DECLARE
+    amount NUMBER := &amount;
+    from_currency VARCHAR2(10) := UPPER('&from_currency');
+    to_currency VARCHAR2(10) := UPPER('&to_currency');
+    exchange_rate NUMBER;
+    converted_amount NUMBER;
+BEGIN
+    IF from_currency = 'USD' THEN
+        exchange_rate := 84;
+    ELSIF from_currency = 'CAD' THEN
+        exchange_rate := 61; 
+    ELSIF from_currency = 'GBP' THEN
+        exchange_rate := 108; 
+    ELSIF from_currency = 'EUR' THEN
+        exchange_rate := 91; 
+    ELSIF from_currency = 'AUD' THEN
+        exchange_rate := 56; 
+    ELSE
+        RAISE_APPLICATION_ERROR(-20001, 'Unsupported currency: ' || from_currency);
+    END IF;
+    converted_amount := amount * exchange_rate;
+    dbms_output.put_line('Converting ' || amount || ' ' || from_currency || ' To ' || to_currency);
+    dbms_output.put_line('Converted amount: ' || converted_amount || ' ' || to_currency);
+END;
+/
+
+--------
+--------
+
+-- 2nd Problem Statement :-
+
+DECLARE
+    Year NUMBER := &Year;
+    res1 NUMBER := Year MOD 4;
+    res2 NUMBER := Year MOD 100;
+    res3 NUMBER := Year MOD 400;
+BEGIN
+    IF (res1 = 0 AND (res2 != 0 OR res3 = 0)) THEN
+        dbms_output.put_line(Year || ': ' || ' is a leap year');
+    ELSE 
+        dbms_output.put_line(Year || ': ' || ' is NOT a leap year');
+    END IF;    
+END;
+/
+
+--------
+--------
+
+-- 3rd Problem Statement :-
+
+DECLARE
+    Wages CONSTANT NUMBER := &Wages;  
+    Hours CONSTANT NUMBER := &Hours;  
+    OvertimeHours CONSTANT NUMBER := 10;  
+    Salary NUMBER;
+BEGIN
+    IF Hours > 40 THEN
+        Salary := (40 * Wages) + ((Hours - 40) * Wages * 1.5);
+    ELSE
+        Salary := Hours * Wages;
+    END IF;
+    dbms_output.put_line('Salary = ' || Salary);
+END;
+
+/
+
+--------
+--------
+
+-- 4th Problem Statement :-
+
+Declare
+salary number := &salary;
+salary1 number;
+salary2 number;
+salary3 number;
+Begin
+    IF salary < 50000 THEN
+        salary1:=salary+salary*0.10;
+        dbms_output.put_line(salary || ': ' || salary1);
+    ELSIF salary BETWEEN 50000 AND 100000 THEN
+        salary2:=salary+salary*0.07;
+        dbms_output.put_line(salary || ': ' || salary2);
+    ELSIF salary > 100000 THEN
+        salary3:=salary+salary*0.05;
+        dbms_output.put_line(salary || ': ' || salary3);  
+    END IF; 
+End;
+/
+
+--------
+--------
+
+-- 5th Problem Statement :-
+
+DECLARE
+    OrderAmt NUMBER := &OrderAmt;
+BEGIN
+    IF OrderAmt < 1000 THEN
+        dbms_output.put_line(OrderAmt || ': ' || 'Bronze Tier');
+    ELSIF OrderAmt BETWEEN 1000 AND 5000 THEN
+        dbms_output.put_line(OrderAmt || ': ' || 'Silver Tier');
+    ELSIF OrderAmt BETWEEN 5001 AND 10000 THEN
+        dbms_output.put_line(OrderAmt || ': ' || 'Gold Tier');
+    ELSIF OrderAmt > 10000 THEN
+        dbms_output.put_line(OrderAmt || ': ' || 'Platinum Tier');  
+    END IF; 
+END;
+/
